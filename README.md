@@ -14,13 +14,13 @@ algoritms and to compare them to Scala's quicksort.
 
 ## Results
 
-Average scores for 10 runs with different sized input arrays:
+Average scores for 10 runs with different ``n`` sized input arrays:
 
 ```markdown
 
 n = 1 000 000
 quickSort:     0.07224 
-radixSort:     0.01250 
+radixSort:     0.01250 `
 radixSortPar:  0.00882
 
 n = 5 000 000
