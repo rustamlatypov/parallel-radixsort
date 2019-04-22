@@ -56,7 +56,7 @@ radixSortPar:  0.68003
 ```
 
 
-<img src="https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/tests/Rplot.png" width="600">
+<img src="" width="600">
 
 
 
