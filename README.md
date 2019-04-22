@@ -55,7 +55,8 @@ radixSortPar:  0.68003
 
 ```
 
-![sorts](https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/tests/Rplot.png)
+
+<img src="https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/tests/Rplot.png" width="600">
 
 
 
