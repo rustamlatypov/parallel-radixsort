@@ -3,19 +3,16 @@ import org.scalatest._
 import sorts._
 
 class ParallelRadixSort extends FlatSpec with Matchers {
-  val rand = new scala.util.Random(1000)
+  val rand = new scala.util.Random(999)
 
-  def randArrayInt(n: Int): Array[Int] = {
-    require(n > 0)
-    Array.tabulate[Int](n)(j => rand.nextInt(Int.MaxValue))
-  }
+  def randArrayInt(n: Int): Array[Int] = Array.tabulate[Int](n)(j => rand.nextInt(Int.MaxValue))
 
 
   def measureTime[T](f: => T): Double = {
     val start = System.nanoTime
     f
     val end = System.nanoTime
-    val t = 1e-9 max (end - start) / 1000000000.0
+    val t = 1e-9 max (end - start) / 1e+9
     t
   }
 
@@ -46,7 +43,7 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
   "Both methods" should "outperform scala.util.Sorting.quickSort" in {
     val nofTests = 5
-    val N = 1000000
+    val N = 5000000
     println("Evaluating efficiency\n")
     var scalaSortTime_sum = 0d
     var radixTime_sum = 0d
@@ -68,23 +65,23 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
       for(i <- 0 until N) {a(i) should be (b(i))}
       for(i <- 0 until N) {a(i) should be (c(i))}
-      radixTime should be <= scalaSortTime
-      radixParTime should be <= scalaSortTime
 
       println(f"  quickSort:     $scalaSortTime%1.5f \n" +
-        f"  radixSort:     $radixTime%1.5f \n" +
-        f"  radixSortPar:  $radixParTime%1.5f\n")
+              f"  radixSort:     $radixTime%1.5f \n" +
+              f"  radixSortPar:  $radixParTime%1.5f\n")
     }
 
-    val scalaSort_avg = scalaSortTime_sum/nofTests
-    val radix_avg = radixTime_sum/nofTests
-    val radixPar_avg = radixparTime_sum/nofTests
+    val scalaSort_avg = scalaSortTime_sum / nofTests
+    val radix_avg = radixTime_sum / nofTests
+    val radixPar_avg = radixparTime_sum / nofTests
 
+    radix_avg should be <= scalaSort_avg
+    radixPar_avg should be <= scalaSort_avg
 
     println("On average")
     println(f"  quickSort:     $scalaSort_avg%1.5f \n" +
-      f"  radixSort:     $radix_avg%1.5f \n" +
-      f"  radixSortPar:  $radixPar_avg%1.5f")
+            f"  radixSort:     $radix_avg%1.5f \n" +
+            f"  radixSortPar:  $radixPar_avg%1.5f")
   }
 }
 

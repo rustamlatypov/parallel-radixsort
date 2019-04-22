@@ -24,7 +24,7 @@ object radixSortPar {
 
   def calcCount(a: Array[Int], shift: Int, P: Int): Array[Array[Int]] = {
 
-    // to cover first 8 bits, i.e., ...000011111111
+    // mask to cover first 8 bits, i.e., ...000011111111
     val mask = 255
     // possible number of different 8-bit sequnces
     val N = 256
@@ -47,14 +47,7 @@ object radixSortPar {
     val partionedCount = new Array[Array[Int]](P)
 
     val startingPairs = (0 to P).toArray zip Array.fill(P){partion}
-
-    val tasks = startingPairs.map({
-      case(t, n) => task
-      {
-        count(partionedCount, t, n)
-      }
-    })
-
+    val tasks = startingPairs.map({case(t, n) => task {  count(partionedCount, t, n)  }})
     tasks.foreach(t => t.join())
 
     partionedCount
@@ -113,14 +106,7 @@ object radixSortPar {
     }
 
     val startingPairs = (0 to P).toArray zip Array.fill(P){partion}
-
-    val tasks = startingPairs.map({
-      case(t, n) => task
-      {
-        organizePartion(t*partion, n)
-      }
-    })
-
+    val tasks = startingPairs.map({case(t, n) => task {  organizePartion(t*partion, n)  }})
     tasks.foreach(t => t.join())
 
     temp
@@ -136,10 +122,10 @@ object radixSortPar {
 
     for (shift <- 0 to 24 by 8)
     {
-      val count = calcCount(aux, shift, P)
-      val index = calcIndex(count, P)
-      if(index(0)(1) == len) return
-      val temp = organize(aux, index, shift, P)
+      val partionedCount = calcCount(aux, shift, P)
+      val partionedIndex = calcIndex(partionedCount, P)
+      if(partionedIndex(0)(1) == len) return
+      val temp = organize(aux, partionedIndex, shift, P)
       aux = temp
     }
     Array.copy(aux, 0, a, 0, len)
