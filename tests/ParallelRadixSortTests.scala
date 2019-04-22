@@ -13,15 +13,12 @@ class ParallelRadixSort extends FlatSpec with Matchers {
     val start = System.nanoTime
     f
     val end = System.nanoTime
-    val t = 1e-9 max (end - start) / 1e+9
-    t
+    val time = (end - start) / 1e+9
+    time
   }
 
 
   "The radixSort.sort method" should "work correctly" in {
-
-    radixSort.sort(Array.fill(100){500})
-
     val nofTests = 100
     val N = 1000
     for(t <- 1 to nofTests) {
@@ -34,9 +31,6 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
 
   "The radixSortPar.sort method" should "work correctly" in {
-
-    radixSortPar.sort(Array.fill(100){500})
-
     val nofTests = 100
     val N = 1000
     for(t <- 1 to nofTests) {
@@ -49,8 +43,8 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
 
   "Both methods" should "outperform scala.util.Sorting.quickSort" in {
-    val nofTests = 5
-    val N = 10000000
+    val nofTests = 10
+    val N = 100000000
     println("Evaluating efficiency\n")
     var scalaSortTime_sum = 0d
     var radixTime_sum = 0d
