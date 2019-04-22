@@ -19,8 +19,8 @@ Average scores for 10 runs with different ``n`` sized input arrays:
 ```markdown
 
 n = 1 000 000
-quickSort:     0.07224 
-radixSort:     0.01250 `
+quickSort:     0.07224
+radixSort:     0.01250 
 radixSortPar:  0.00882
 
 n = 5 000 000
@@ -33,10 +33,20 @@ quickSort:     0.76325
 radixSort:     0.12054 
 radixSortPar:  0.06948
   
+n = 30 000 000
+quickSort:     2.49603 
+radixSort:     0.41451 
+radixSortPar:  0.23495
+
 n = 50 000 000
 quickSort:     4.24371 
 radixSort:     0.77241 
 radixSortPar:  0.35213
+
+n = 80 000 000
+quickSort:     7.05439 
+radixSort:     1.22147 
+radixSortPar:  0.54680
   
 n = 100 000 000
 quickSort:     8.89121 
