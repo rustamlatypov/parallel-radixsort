@@ -59,6 +59,8 @@ radixSortPar:  0.68003
 <img src="https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/tests/sortplot.png" width="650">
 
 
+From the logarithmic plot it can be infered that both radixSort and radixSortPar are logarithmically proportional to quickSort
+and each other. Roughly, 
 
 ## Software prerequisites
 
