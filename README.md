@@ -55,6 +55,10 @@ radixSortPar:  0.68003
 
 ```
 
+![alt text](
+
+
+
 ## Software prerequisites
 
 Built on Scala 2.12.8 and JDK 1.8.0_202. All required packages are included in /lib.
