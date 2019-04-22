@@ -26,8 +26,10 @@ object radixSortPar {
 
     // to cover first 8 bits, i.e., ...000011111111
     val mask = 255
+
     // possible number of different 8-bit sequnces
     val N = 256
+
     // size of the partions
     val partion = a.length/P
 
@@ -96,6 +98,8 @@ object radixSortPar {
 
     val len = a.length
     val temp = new Array[Int](len)
+
+    // size of the partions
     val partion = len/P
 
     def organizePartion(start: Int, n: Int): Unit =
@@ -132,7 +136,6 @@ object radixSortPar {
     var aux: Array[Int] = a
     val len: Int = aux.length
     val P: Int = forkJoinPool.getParallelism
-
 
     for (shift <- 0 to 24 by 8)
     {
