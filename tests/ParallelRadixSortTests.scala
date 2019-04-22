@@ -3,6 +3,7 @@ import org.scalatest._
 import sorts._
 
 class ParallelRadixSort extends FlatSpec with Matchers {
+
   val rand = new scala.util.Random(999)
 
   def randArrayInt(n: Int): Array[Int] = Array.tabulate[Int](n)(j => rand.nextInt(Int.MaxValue))
@@ -77,6 +78,7 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
     radix_avg should be <= scalaSort_avg
     radixPar_avg should be <= scalaSort_avg
+    radixPar_avg should be <= radix_avg
 
     println("On average")
     println(f"  quickSort:     $scalaSort_avg%1.5f \n" +
@@ -84,4 +86,3 @@ class ParallelRadixSort extends FlatSpec with Matchers {
             f"  radixSortPar:  $radixPar_avg%1.5f")
   }
 }
-

@@ -8,7 +8,7 @@ object radixSortPar {
 
   def task[T](func: => T): ForkJoinTask[T] = {
     val task = new RecursiveTask[T] {
-      def compute = {
+      def compute: T = {
         func
       }
     }

@@ -1,8 +1,6 @@
 package sorts
 
-
 object radixSort {
-
 
   def sort(a: Array[Int]): Array[Int] = {
 
