@@ -60,7 +60,7 @@ radixSortPar:  0.68003
 
 
 From the logarithmic plot it can be infered that both radixSort and radixSortPar are logarithmically proportional to quickSort
-and each other. Roughly, 
+and each other. Roughly, radixSortPar is proportinal to radixSort with a constant 0.5, and to quickSort with a constant 0.1.
 
 ## Software prerequisites
 
