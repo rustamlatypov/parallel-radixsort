@@ -1,4 +1,4 @@
-# LSD parallel radix sort
+# LSD radix sort and LSD parallel radix sort
 
 Developed in April, 2019.
 
