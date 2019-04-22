@@ -4,13 +4,13 @@ Developed in April, 2019.
 
 ## Description
 
-Implementations for LSD radix sort and parallel radix sort. LSD radix sort is rather straightforward algorithm. 
-LSD parallel radix sort is parallelized both in the counting phase and the reorganizing phase. Parellelization is 
+Implementations for LSD radix sort and parallel radix sort. LSD radix sort is a rather straightforward and sequential algorithm. 
+LSD parallel radix sort is parallelized both in the counting phase and the reorganizing phase. Parallelization is 
 achieved using Java's ForkJoinTask framework. 
 
 Both algorithms are benchmarked against Scala's own implementation of quicksort, i.e., scala.util.Sorting.quickSort, 
 using the tests included in /tests. After the validity of the algorithms is tested, System.nanoTime is utilized to time the 
-algoritms and to compare them to Scala's quicksort.
+algorithms and to compare them to Scala's quicksort.
 
 ## Results
 
@@ -60,7 +60,7 @@ radixSortPar:  0.68003
 
 
 From the logarithmic plot it can be infered that both radixSort and radixSortPar are logarithmically proportional to quickSort
-and each other. Roughly, radixSortPar is proportinal to radixSort with a constant 0.5, and to quickSort with a constant 0.1.
+and each other. Roughly, radixSortPar is proportinal to radixSort with constant 0.5, and to quickSort with constant 0.1.
 
 ## Software prerequisites
 
