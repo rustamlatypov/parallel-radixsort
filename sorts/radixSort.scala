@@ -6,6 +6,7 @@ object radixSort {
 
     // length of the array to be sorted
     val len = a.length
+    if (len <= 1) return a
     // to cover first 8 bits, i.e., ...000011111111
     val mask = 255
     // possible number of different 8-bit sequnces
@@ -22,7 +23,6 @@ object radixSort {
         i += 1
       }
 
-      if (count(0) == len - 1) return a
       val index = new Array[Int](N)
 
       var j = 0

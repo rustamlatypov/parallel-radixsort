@@ -19,8 +19,11 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
 
   "The radixSort.sort method" should "work correctly" in {
-    val nofTests = 10
-    val N = 100
+
+    radixSort.sort(Array.fill(100){500})
+
+    val nofTests = 100
+    val N = 1000
     for(t <- 1 to nofTests) {
       val a = randArrayInt(N)
       val sorted = a.sorted
@@ -31,8 +34,11 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
 
   "The radixSortPar.sort method" should "work correctly" in {
-    val nofTests = 10
-    val N = 100
+
+    radixSortPar.sort(Array.fill(100){500})
+
+    val nofTests = 100
+    val N = 1000
     for(t <- 1 to nofTests) {
       val a = randArrayInt(N)
       val sorted = a.sorted
@@ -49,6 +55,7 @@ class ParallelRadixSort extends FlatSpec with Matchers {
     var scalaSortTime_sum = 0d
     var radixTime_sum = 0d
     var radixparTime_sum = 0d
+
 
     for(t <- 1 to nofTests) {
       println(f"Test $t")

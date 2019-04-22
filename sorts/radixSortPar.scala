@@ -62,9 +62,9 @@ object radixSortPar {
     // possible number of different 8-bit sequnces
     val N = 256
 
-    // while-loop jungle for efficiency
     // computing starting indices for each partionedCount array element
-    // for parallelization to be possible in the organize-function
+    // for parallelization to be possible in the organize-function,
+    // while-loop jungle for efficiency
     val partionedIndex = Array.ofDim[Int](P, N)
     var m = 0
     while(m < partionedCount.length) {
@@ -96,6 +96,8 @@ object radixSortPar {
     val len = a.length
     val temp = new Array[Int](len)
 
+    // mask to cover first 8 bits, i.e., ...000011111111
+    val mask = 255
     // size of the partions
     val partion = len/P
 
@@ -106,7 +108,7 @@ object radixSortPar {
       var i = start
       while(i < start+partionlen)
       {
-        val num = (a(i) >> shift) & 255
+        val num = (a(i) >> shift) & mask
         temp(aux(num)) = a(i)
         aux(num) += 1
         i += 1
@@ -126,16 +128,19 @@ object radixSortPar {
 
     var aux: Array[Int] = a
     val len: Int = aux.length
+    if (len <= 1) return
+
     val P: Int = forkJoinPool.getParallelism
 
+    // sorting type Int with 32 bits, partioned in four groups
     for (shift <- 0 to 24 by 8)
     {
       val partionedCount = calcCount(aux, shift, P)
       val partionedIndex = calcIndex(partionedCount, P)
-      if(partionedIndex(0)(1) == len) return
       val temp = organize(aux, partionedIndex, shift, P)
       aux = temp
     }
+
     Array.copy(aux, 0, a, 0, len)
   }
 }
