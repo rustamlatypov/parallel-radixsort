@@ -6,6 +6,7 @@ object radixSortPar {
 
   private val forkJoinPool = new ForkJoinPool()
 
+  // framework for parallel processes
   def task[T](func: => T): ForkJoinTask[T] = {
     val task = new RecursiveTask[T] {
       def compute: T = {
@@ -29,25 +30,26 @@ object radixSortPar {
     // possible number of different 8-bit sequnces
     val N = 256
     // size of the partions
-    val partion = a.length/P
+    val partionlen = a.length/P
 
-    def count(partionedCount: Array[Array[Int]], t: Int, n: Int): Unit =
+    def count(partionedCount: Array[Array[Int]], point: Int, partionlen: Int): Unit =
     {
-      val start = t*n
-      val c = new Array[Int](N)
+      val aux = new Array[Int](N)
+      val start = point*partionlen
       var i = start
-      while(i < start+n)
+      while(i < start+partionlen)
       {
-        c((a(i) >> shift) & mask) += 1
+        aux((a(i) >> shift) & mask) += 1
         i += 1
       }
-      partionedCount(t) = c
+      partionedCount(point) = aux
     }
 
     val partionedCount = new Array[Array[Int]](P)
 
-    val startingPairs = (0 to P).toArray zip Array.fill(P){partion}
-    val tasks = startingPairs.map({case(t, n) => task {  count(partionedCount, t, n)  }})
+    // initializing P number of independent function calls to compute counts
+    val startingPoints = (0 until P).toArray
+    val tasks = startingPoints.map({point => task {  count(partionedCount, point, partionlen)  }})
     tasks.foreach(t => t.join())
 
     partionedCount
@@ -60,6 +62,9 @@ object radixSortPar {
     // possible number of different 8-bit sequnces
     val N = 256
 
+    // while-loop jungle for efficiency
+    // computing starting indices for each partionedCount array element
+    // for parallelization to be possible in the organize-function
     val partionedIndex = Array.ofDim[Int](P, N)
     var m = 0
     while(m < partionedCount.length) {
@@ -81,6 +86,7 @@ object radixSortPar {
       }
       m += 1
     }
+
     partionedIndex
   }
 
@@ -89,24 +95,27 @@ object radixSortPar {
 
     val len = a.length
     val temp = new Array[Int](len)
+
+    // size of the partions
     val partion = len/P
 
-    def organizePartion(start: Int, n: Int): Unit =
+    def organizePartion(point: Int, partionlen: Int): Unit =
     {
-      val go = ((start+0.0)*P)/len
-      val partion = partionedIndex(go.toInt)
+      val aux = partionedIndex(point)
+      val start = point*partionlen
       var i = start
-      while(i < start+n)
+      while(i < start+partionlen)
       {
         val num = (a(i) >> shift) & 255
-        temp(partion(num)) = a(i)
-        partion(num) += 1
+        temp(aux(num)) = a(i)
+        aux(num) += 1
         i += 1
       }
     }
 
-    val startingPairs = (0 to P).toArray zip Array.fill(P){partion}
-    val tasks = startingPairs.map({case(t, n) => task {  organizePartion(t*partion, n)  }})
+    // initializing P number of independent function calls to reorganize array a
+    val startingPairs = (0 until P).toArray
+    val tasks = startingPairs.map({point => task {  organizePartion(point, partion)  }})
     tasks.foreach(t => t.join())
 
     temp
@@ -118,7 +127,6 @@ object radixSortPar {
     var aux: Array[Int] = a
     val len: Int = aux.length
     val P: Int = forkJoinPool.getParallelism
-
 
     for (shift <- 0 to 24 by 8)
     {
