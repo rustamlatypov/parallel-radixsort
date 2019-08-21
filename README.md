@@ -14,16 +14,6 @@ OSX, Intel Core i5-7600 Kaby Lake CPU 3.5 GHz. Average scores for 10 runs with `
 
 ```markdown
 
-n = 1 000 000
-quickSort:     0.07224
-radixSort:     0.01250 
-radixSortPar:  0.00882
-
-n = 5 000 000
-quickSort:     0.38822 
-radixSort:     0.05962 
-radixSortPar:  0.03273
-  
 n = 10 000 000
 quickSort:     0.76325 
 radixSort:     0.12054 
