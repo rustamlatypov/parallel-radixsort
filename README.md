@@ -27,17 +27,17 @@ radixSortPar:  0.23495
 n = 50 000 000
 quickSort:     4.24371 
 radixSort:     0.77241    ratio: 5.49
-radixSortPar:  0.35213    ratio: 12.05
+radixSortPar:  0.35213    ratio: 12.1
 
 n = 80 000 000
 quickSort:     7.05439 
 radixSort:     1.22147    ratio: 5.78
-radixSortPar:  0.54680    ratio: 12.90
+radixSortPar:  0.54680    ratio: 12.9
   
 n = 100 000 000
 quickSort:     8.89121 
 radixSort:     1.54018    ratio: 5.77
-radixSortPar:  0.68003    ratio: 13.07
+radixSortPar:  0.68003    ratio: 13.1
 
 ```
 
