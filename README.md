@@ -10,7 +10,7 @@ Both algorithms are benchmarked against Scala's own implementation of quicksort,
 
 ## Results
 
-OSX, Intel Core i5-7600 Kaby Lake CPU 3.5 GHz. Average scores for 10 runs with ``n`` sized input arrays:
+OSX, Intel Core i5-7600 Kaby Lake 3.5 GHz. Average scores for 10 runs with ``n`` sized input arrays:
 
 ```markdown
 
