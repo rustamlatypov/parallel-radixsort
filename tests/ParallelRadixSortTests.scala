@@ -43,8 +43,8 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
 
   "Both methods" should "outperform scala.util.Sorting.quickSort" in {
-    val nofTests = 10
-    val N = 1000000
+    val nofTests = 1
+    val N = 100000000
     println("Evaluating efficiency\n")
     var scalaSortTime_sum = 0d
     var radixTime_sum = 0d

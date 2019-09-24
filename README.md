@@ -42,7 +42,7 @@ radixSortPar:  0.68003    ratio: 13.1
 ```
 
 
-<img src="https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/tests/sortplot.png" width="650">
+<img src="https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/R/Rplot.png" width="650">
 
 
 From the logarithmic plot it can be infered that both radixSort and radixSortPar are proportional to quickSort and each other. Roughly, the runtime of quickSort is proportinal to radixSort with constant 6, and to radixSortPar with constant 13.
