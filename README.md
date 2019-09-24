@@ -49,7 +49,7 @@ From the logarithmic plot it can be infered that both radixSort and radixSortPar
 
 ## Software prerequisites
 
-Built on Scala 2.12.8 and JDK 1.8.0_202. All required packages are included in /lib.
+Built on Scala 2.12.8 and JDK 1.8.0_202. All required packages are included in `/lib`.
 
 
 ## Author
