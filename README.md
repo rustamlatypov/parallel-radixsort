@@ -15,12 +15,12 @@ OSX, Intel Core i5-7600 Kaby Lake 3.5 GHz. Average scores for 10 runs with ``n``
 ```
 n = 10 000 000
 quickSort:	0.763 
-radixSort:      0.121	speedup: 6,33
+radixSort:      0.121	speedup: 6.33
 radixSortPar:   0.070   speedup: 11.0
   
 n = 30 000 000
 quickSort:      2.496    
-radixSort:      0.415	speedup: 6,02
+radixSort:      0.415	speedup: 6.02
 radixSortPar:   0.235   speedup: 10.6
 
 n = 50 000 000
