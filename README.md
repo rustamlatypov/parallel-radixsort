@@ -6,11 +6,11 @@ Developed in April, 2019.
 
 Implementations of the sequential and parallel LSD radix sorts. LSD radix sort is a rather straightforward and sequential algorithm. LSD parallel radix sort is parallelized both in the counting phase and the reorganizing phase. Multicore processing is achieved using Java's ForkJoinTask framework. 
 
-Both algorithms are benchmarked against Scala's own implementation of quicksort, i.e., scala.util.Sorting.quickSort, using the tests included in /tests. After the validity of the algorithms is tested, System.nanoTime is used to time the algorithms and to compare them to Scala's quicksort.
+Both algorithms are benchmarked against Scala's own implementation of quicksort, i.e., `scala.util.Sorting.quickSort`, using the tests included in `/tests`. After the validity of the algorithms is tested, System.nanoTime is used to time the algorithms and to compare them to Scala's quicksort.
 
 ## Results
 
-macOS Movaje 10.14.6, Intel Core i5-7600 Kaby Lake 3.5 GHz. 
+macOS Movaje 10.14.6, Intel Core i5-7600 Kaby Lake 3.5 GHz. <br/>
 Average scores for 10 runs with ``n`` sized input arrays:
 
 ```
