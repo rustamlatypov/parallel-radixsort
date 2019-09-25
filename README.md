@@ -12,32 +12,31 @@ Both algorithms are benchmarked against Scala's own implementation of quicksort,
 
 OSX, Intel Core i5-7600 Kaby Lake 3.5 GHz. Average scores for 10 runs with ``n`` sized input arrays:
 
-```markdown
-
+```
 n = 10 000 000
-quickSort:     0.76325 
-radixSort:     0.12054 
-radixSortPar:  0.06948
+quickSort:	0.763 
+radixSort:      0.121	speedup: 6,33
+radixSortPar:   0.070   speedup: 11.0
   
 n = 30 000 000
-quickSort:     2.49603 
-radixSort:     0.41451 
-radixSortPar:  0.23495
+quickSort:      2.496    
+radixSort:      0.415	speedup: 6,02
+radixSortPar:   0.235   speedup: 10.6
 
 n = 50 000 000
-quickSort:     4.24371 
-radixSort:     0.77241    ratio: 5.49
-radixSortPar:  0.35213    ratio: 12.1
+quickSort:      4.244	
+radixSort:      0.773	speedup: 5.49
+radixSortPar:   0.352   speedup: 12.1
 
 n = 80 000 000
-quickSort:     7.05439 
-radixSort:     1.22147    ratio: 5.78
-radixSortPar:  0.54680    ratio: 12.9
+quickSort:      7.054 
+radixSort:      1.221	speedup: 5.78
+radixSortPar:   0.547	speedup: 12.9
   
 n = 100 000 000
-quickSort:     8.89121 
-radixSort:     1.54018    ratio: 5.77
-radixSortPar:  0.68003    ratio: 13.1
+quickSort:      8.891		 
+radixSort:      1.540	speedup: 5.77
+radixSortPar:   0.680	speedup: 13.1
 
 ```
 
