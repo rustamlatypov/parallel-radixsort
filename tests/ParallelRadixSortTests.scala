@@ -68,9 +68,9 @@ class ParallelRadixSort extends FlatSpec with Matchers {
       for(i <- 0 until N) {a(i) should be (b(i))}
       for(i <- 0 until N) {a(i) should be (c(i))}
 
-      println(f"  quickSort:     $scalaSortTime%1.5f \n" +
-              f"  radixSort:     $radixTime%1.5f \n" +
-              f"  radixSortPar:  $radixParTime%1.5f\n")
+      println(f"  quickSort:     $scalaSortTime%1.3f \n" +
+              f"  radixSort:     $radixTime%1.3f \n" +
+              f"  radixSortPar:  $radixParTime%1.3f\n")
     }
 
     val scalaSort_avg = scalaSortTime_sum / nofTests
@@ -82,8 +82,8 @@ class ParallelRadixSort extends FlatSpec with Matchers {
     radixPar_avg should be <= radix_avg
 
     println("On average")
-    println(f"  quickSort:     $scalaSort_avg%1.5f \n" +
-            f"  radixSort:     $radix_avg%1.5f \n" +
-            f"  radixSortPar:  $radixPar_avg%1.5f")
+    println(f"  quickSort:     $scalaSort_avg%1.3f \n" +
+            f"  radixSort:     $radix_avg%1.3f \n" +
+            f"  radixSortPar:  $radixPar_avg%1.3f")
   }
 }
