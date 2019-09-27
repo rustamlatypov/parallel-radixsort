@@ -16,9 +16,9 @@ Built with Scala 2.12.8 and JDK 1.8.0_202. All required packages are included in
 
 ## Results
 
-macOS Movaje 10.14.6<br/>
+macOS Movaje 10.14.6 <br/>
 Intel Core i5-7600 Kaby Lake 3.5 GHz <br/>
-Average scores for 10 runs with ``n`` sized input arrays:
+Average scores for 10 runs with **n** sized input arrays:
 
 ```
 n = 10 000 000
@@ -48,13 +48,10 @@ radixSortPar:   0.680	speedup: 13.1
 
 ```
 
-
-<img src="https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/R/Rplot.png" width="650">
+<img src="https://github.com/rustamlatypov/parallel-radixsort/blob/master/R/Rplot.png" width="650">
 
 
 The logarithmic plot shows how the running times develop. The speedup increases with **n** as it should, since on average quicksort runs in **Θ(nlog(n))** and radix sort in **Θ(nk)**, where k is 4 in this case.
-
-From the logarithmic plot it can be infered that both radixSort and radixSortPar are proportional to quickSort and each other. Roughly, the runtime of quickSort is proportinal to radixSort with constant 6, and to radixSortPar with constant 13.
 
 
 ## Author
