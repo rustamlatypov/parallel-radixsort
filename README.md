@@ -52,7 +52,7 @@ radixSortPar:   0.680	speedup: 13.1
 <img src="https://raw.githubusercontent.com/rustamlatypov/parallel-radixsort/master/R/Rplot.png" width="650">
 
 
-The logarithmic plot shows how the running times develop. The speedup increases with **n** as it should, since on average quicksort runs in O(nlog(n)) and radix sort O(nk), where k is 4 in our case.
+The logarithmic plot shows how the running times develop. The speedup increases with **n** as it should, since on average quicksort runs in **O(nlog(n))** and radix sort **O(nk)**, where k is 4 in our case.
 
 From the logarithmic plot it can be infered that both radixSort and radixSortPar are proportional to quickSort and each other. Roughly, the runtime of quickSort is proportinal to radixSort with constant 6, and to radixSortPar with constant 13.
 
