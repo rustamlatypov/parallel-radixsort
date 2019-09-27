@@ -9,11 +9,6 @@ Sequential and parallel implementations of LSD radix sort. Sequential radix sort
 Both algorithms can be tested and benchmarked against Scala's own implementation of quicksort, i.e., `scala.util.Sorting.quickSort` by running `main.scala`. This script checks the validity of the algorithms and times them algorithms against quicksort using System.nanoTime. The algorithms sort 32-bit signed integers by grouping them into 8-bit sized batches.
 
 
-## Software prerequisites
-
-Built with Scala 2.12.8 and JDK 1.8.0_202. All required packages are included in `/common`.
-
-
 ## Results
 
 macOS Movaje 10.14.6 <br/>
@@ -53,6 +48,10 @@ radixSortPar:   0.680	speedup: 13.1
 
 The logarithmic plot shows how the running times develop. The speedup increases with **n** as it should, since on average quicksort runs in **Θ(nlog(n))** and radix sort in **Θ(nk)**, where k is 4 in this case.
 
+
+## Software prerequisites
+
+Built with Scala 2.12.8 and JDK 1.8.0_202. All required packages are included in `/common`.
 
 ## Author
 
