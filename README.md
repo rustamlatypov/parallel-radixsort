@@ -13,37 +13,36 @@ Both algorithms can be tested and benchmarked against Scala's own implementation
 
 macOS Movaje 10.14.6 <br/>
 Intel Core i5-7600 Kaby Lake 3.5 GHz <br/>
-Average scores for 10 runs with **n** sized input arrays:
+Runtimes with **n** sized input arrays:
 
 ```
-n = 10 000 000
-quickSort:	0.763 
-radixSort:      0.121	speedup: 6.33
-radixSortPar:   0.070   speedup: 11.0
-  
+n = 20 000 000
+quickSort:	1.64
+radixSort:	0.30	speedup: 5.47
+radixSortPar:	0.14	speedup: 11.7
+
 n = 30 000 000
-quickSort:      2.496    
-radixSort:      0.415	speedup: 6.02
-radixSortPar:   0.235   speedup: 10.6
+quickSort:	2.53
+radixSort:	0.41	speedup: 6.12
+radixSortPar:	0.21	speedup: 12.1
+
+n = 40 000 000
+quickSort:	3.37
+radixSort:	0.53	speedup: 6.42
+radixSortPar:	0.27	speedup: 12.3
 
 n = 50 000 000
-quickSort:      4.244	
-radixSort:      0.773	speedup: 5.49
-radixSortPar:   0.352   speedup: 12.1
+quickSort:	4.54
+radixSort:	0.62	speedup: 7.36
+radixSortPar:	0.35	speedup: 13.1
 
-n = 80 000 000
-quickSort:      7.054 
-radixSort:      1.221	speedup: 5.78
-radixSortPar:   0.547	speedup: 12.9
-  
-n = 100 000 000
-quickSort:      8.891		 
-radixSort:      1.540	speedup: 5.77
-radixSortPar:   0.680	speedup: 13.1
-
+n = 60 000 000
+quickSort:	6.17
+radixSort:	0.81	speedup: 7.67
+radixSortPar:	0.42	speedup: 14.6
 ```
 
-<img src="https://github.com/rustamlatypov/parallel-radixsort/blob/master/R/Rplot.png" width="650">
+<img src="https://github.com/rustamlatypov/parallel-radixsort/blob/master/R/Rplot00.png" width="650">
 
 
 The logarithmic plot shows how the running times develop. The speedup increases with **n** as it should, since on average quicksort runs in **Θ(nlog(n))** and radix sort in **Θ(nk)**, where k is 4 in this case.
