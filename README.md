@@ -42,7 +42,7 @@ radixSort:	0.81	speedup: 7.67
 radixSortPar:	0.42	speedup: 14.6
 ```
 
-<img src="https://github.com/rustamlatypov/parallel-radixsort/blob/master/R/Rplot00.png" width="650">
+<img src="https://github.com/rustamlatypov/parallel-radixsort/blob/master/R/Rplot.png" width="650">
 
 
 The logarithmic plot shows how the running times develop. The speedup increases with **n** as it should, since on average quicksort runs in **Θ(nlog(n))** and radix sort in **Θ(nk)**, where k is 4 in this case.
