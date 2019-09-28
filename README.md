@@ -6,7 +6,7 @@ Developed in April, 2019.
 
 Sequential and parallel implementations of LSD radix sort. Sequential radix sort is a rather straightforward algorithm. Parallel radix sort is parallelized both in the counting phase and the reorganizing phase. Multicore processing is achieved using Java's ForkJoinTask framework.
 
-Both algorithms can be tested and benchmarked against Scala's own implementation of quicksort, i.e., `scala.util.Sorting.quickSort` by running `main.scala`. This script checks the validity of the algorithms and times them algorithms against quicksort using System.nanoTime. The algorithms sort 32-bit signed integers by grouping them into 8-bit sized batches.
+Both algorithms can be tested and benchmarked against Scala's own implementation of quicksort, i.e., `scala.util.Sorting.quickSort` by running `main.scala`. This script checks the validity of the algorithms and times them against quickSort using System.nanoTime. The algorithms sort 32-bit signed integers by grouping them into 8-bit sized batches.
 
 
 ## Results
