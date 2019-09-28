@@ -43,11 +43,8 @@ class ParallelRadixSort extends FlatSpec with Matchers {
 
 
   "Both methods" should "outperform scala.util.Sorting.quickSort" in {
-    val iter = 20
-    val N = 40000000
-    var scalaSortTime_sum = 0d
-    var radixTime_sum = 0d
-    var radixparTime_sum = 0d
+    val iter = 10
+    val N = 10000000
 
     val qS = scala.util.Sorting
     val rS = radixSort
@@ -87,56 +84,11 @@ class ParallelRadixSort extends FlatSpec with Matchers {
     println("On average")
     println(f"  quickSort:     $t1%1.3f \n" +
             f"  radixSort:     $t2%1.3f \n" +
-            f"  radixSortPar:  $t3%1.3f \n" +
-            f"  $a1%1.3f  $a2%1.3f")
+            f"  radixSortPar:  $t3%1.3f \n" )
 
-    /*
-    for(t <- 1 to nofTests) {
-      println(f"Test $t")
-      val a = randArrayInt(N)
-      val b = a.clone
-      val c = a.clone
-
-      val scalaSortTime = measureTime { qS.quickSort(a) }
-      val radixTime = measureTime { rS.sort(b) }
-      val radixParTime = measureTime { rSP.sort(c) }
-
-      scalaSortTime_sum += scalaSortTime
-      radixTime_sum += radixTime
-      radixparTime_sum += radixParTime
-
-      for(i <- 0 until N) {a(i) should be (b(i))}
-      for(i <- 0 until N) {a(i) should be (c(i))}
-
-      val s1 = scalaSortTime/radixTime
-      val s2 = scalaSortTime/radixParTime
-
-      println(f"  quickSort:     $scalaSortTime%1.3f \n" +
-              f"  radixSort:     $radixTime%1.3f \n" +
-              f"  radixSortPar:  $radixParTime%1.3f\n" +
-              f" $s1%1.3f  $s2%1.3f")
-    }
-
-
-    val scalaSort_avg = scalaSortTime_sum / nofTests
-    val radix_avg = radixTime_sum / nofTests
-    val radixPar_avg = radixparTime_sum / nofTests
-
-    val s1 = scalaSort_avg/radix_avg
-    val s2 = scalaSort_avg/radixPar_avg
-
-    radix_avg should be <= scalaSort_avg
-    radixPar_avg should be <= scalaSort_avg
-    radixPar_avg should be <= radix_avg
-
-    println("On average")
-    println(f"  quickSort:     $scalaSort_avg%1.3f \n" +
-            f"  radixSort:     $radix_avg%1.3f \n" +
-            f"  radixSortPar:  $radixPar_avg%1.3f\n" +
-            f" $s1%1.3f  $s2%1.3f")
-    */
-
-
+    println("Speedup")
+    println(f"  radixSort:     $a1%1.3f \n" +
+            f"  radixSortPar:  $a2%1.3f")
   }
 
 }

@@ -13,7 +13,7 @@ Both algorithms can be tested and benchmarked against Scala's own implementation
 
 macOS Movaje 10.14.6 <br/>
 Intel Core i5-7600 Kaby Lake 3.5 GHz <br/>
-Runtimes with **n** sized input arrays:
+Average runtimes with **n** sized input arrays:
 
 ```
 n = 20 000 000
