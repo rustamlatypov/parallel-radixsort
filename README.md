@@ -14,7 +14,7 @@ Built with Scala 2.12.8 and JDK 1.8.0_202. All required packages are included in
 
 ## Results
 
-macOS Movaje 10.14.6 <br/>
+macOS Movaje 10.14.4 <br/>
 Intel Core i5-7600 Kaby Lake 3.5 GHz <br/>
 Average runtimes with **n** sized input arrays:
 
